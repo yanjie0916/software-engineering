@@ -1,6 +1,5 @@
 <?php
 require("dbconfig.php");
-
 $_SESSION['uID'] = 0;
 $userName = $_POST['id'];
 $passWord = $_POST['pwd'];
@@ -9,7 +8,7 @@ $passWord = $_POST['pwd'];
 		if ($result = mysqli_query($db,$sql)) {
 			if ($row=mysqli_fetch_array($result)) {
 				$_SESSION['uID'] = $row['uid'];
-				echo "<a href='index.php'>go</a>";
+				header("Location:index.php");
 				exit(0);
 			} else {
 				echo "Invalid Username or Password - Please try again <br />";
